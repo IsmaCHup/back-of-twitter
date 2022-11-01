@@ -34,16 +34,4 @@ module.exports.authorsControllers = {
       console.log(e.message);
     }
   },
-  likeTwit: async (req, res) => {
-    try {
-      const likeTwitter = Author.findByIdAndUpdate(
-        req.params.id,
-        { $push: { like: req.body.id } },
-        { new: true }
-      );
-      res.json(`Вам понравился твит`);
-    } catch (e) {
-      console.log(e.message);
-    }
-  },
 };

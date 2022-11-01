@@ -28,9 +28,7 @@ module.exports.commentsControllers = {
   showComment: async (req, res) => {
     try {
       const showComment = await Comment.find({"twit": req.params.id})
-        .populate("authorTwit", "name -_id", "Author")
-        .populate("twit", "twit -_id", "Twitter")
-        .populate("author", "name -_id", "Author")
+        .populate("author", "name -_id")
         .select("text -_id");
       res.json(showComment);
     } catch (e) {

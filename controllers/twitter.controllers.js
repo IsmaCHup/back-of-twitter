@@ -29,8 +29,20 @@ module.exports.twitterControllers = {
         "author",
         "name -_id",
         "Author"
+      ).populate("like", "name -_id");
+      res.json(`${getTwitt.author.name}: ${getTwitt.twit}. Понравилось: ${getTwitt.like}`);
+    } catch (e) {
+      console.log(e.message);
+    }
+  },
+  likeTwit: async (req, res) => {
+    try {
+      const likeTwitter = await Twitter.findByIdAndUpdate(
+          req.params.id,
+          { $push: { like: req.body.like }},
+          { new: true }
       );
-      res.json(`${getTwitt.author.name}: ${getTwitt.twit}`);
+      res.json(likeTwitter);
     } catch (e) {
       console.log(e.message);
     }

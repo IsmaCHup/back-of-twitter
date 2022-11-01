@@ -6,7 +6,6 @@ const router = Router();
 router.post("/author", authorsControllers.addAuthor);
 router.delete("/author/:id", authorsControllers.deleteAuthor);
 router.patch("/author/twitter/:id", authorsControllers.saveTwitter);
-router.patch("/author/twitter/like/:id", authorsControllers.likeTwit);
 
 module.exports = router;
 

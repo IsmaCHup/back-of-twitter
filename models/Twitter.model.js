@@ -5,7 +5,10 @@ const twitterSchema = mongoose.Schema({
         ref: 'Author',
         type: mongoose.Schema.Types.ObjectId
     },
-    twit: String
+    twit: String,
+    like: {
+        ref: 'Author',
+        type: []}
 });
 
 const Twitter = mongoose.model('Twitter', twitterSchema);

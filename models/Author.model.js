@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const authorSchema = mongoose.Schema({
   name: String,
-  saved: Array
+  saved: []
 });
 
 const Author = mongoose.model("Author", authorSchema);
