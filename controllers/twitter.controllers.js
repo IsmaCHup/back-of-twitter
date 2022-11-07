@@ -39,7 +39,7 @@ module.exports.twitterControllers = {
     try {
       const likeTwitter = await Twitter.findByIdAndUpdate(
           req.params.id,
-          { $push: { like: req.body.like }},
+          { $addToSet: { like: req.body.like }},
           { new: true }
       );
       res.json(likeTwitter);

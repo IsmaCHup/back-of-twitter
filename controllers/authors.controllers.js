@@ -26,7 +26,7 @@ module.exports.authorsControllers = {
     try {
       const savedTwit = Author.findByIdAndUpdate(
         req.params.id,
-        { $push: { saved: req.body.id } },
+        { $addToSet: { saved: req.body.id } },
         { new: true }
       );
       res.json(`${savedTwit}`);
